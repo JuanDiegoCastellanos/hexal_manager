@@ -9,6 +9,7 @@ import (
 	"hexal_manager_v0.0.1/app/routes"
 	"net/http"
 	"os"
+	"crypto/tls"
 )
 
 func main() {
@@ -19,6 +20,18 @@ func main() {
 
 	// Create new echo instance
 	e := echo.New()
+	// Configurar certificado y clave SSL
+	configSSL := &tls.Config{}
+	configSSL.Certificates = make([]tls.Certificate, 1)
+	configSSL.Certificates[0], err = tls.LoadX509KeyPair("/etc/letsencrypt/live/www.spinworld.top/fullchain.pem", "/etc/letsencrypt/live/www.spinworld.top/privkey.pem")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Agregar puerto HTTPS
+	e.Server.Addr = ":8023"
+	e.Server.TLSConfig = configSSL
+
 	// Set log level
 	e.Logger.SetLevel(log.DEBUG)
 	// Log Echo output to standard out
@@ -54,5 +67,7 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Please, enter the endpoint that you have")
 	})
-	e.Logger.Fatal(e.Start(":8023"))
+	// Iniciar el servidor HTTPS
+	e.Logger.Fatal(e.StartTLS(":8023", "/etc/letsencrypt/live/www.spinworld.top/fullchain.pem", "/etc/letsencrypt/live/www.spinworld.top/privkey.pem"))
+	//e.Logger.Fatal(e.Start(":8023"))
 }
