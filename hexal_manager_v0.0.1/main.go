@@ -1,14 +1,15 @@
 package main
 
 import (
+	"net/http"
+	"os"
+
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/gommon/log"
 	"hexal_manager_v0.0.1/app/config"
 	"hexal_manager_v0.0.1/app/models"
 	"hexal_manager_v0.0.1/app/routes"
-	"net/http"
-	"os"
 )
 
 func main() {
