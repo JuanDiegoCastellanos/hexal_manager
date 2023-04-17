@@ -1,5 +1,6 @@
 package main
 
+//@Manolo221212Top
 import (
 	"crypto/tls"
 	"net/http"
@@ -59,9 +60,14 @@ func main() {
 		}
 	}()
 
-	if err := config.Migrate(db, &models.Area{}); err != nil {
+	all_models := []interface{}{
+		&models.Area{},
+		&models.User{},
+	}
+	if err := config.Migrate(db, all_models); err != nil {
 		log.Fatalf("Error realizando migraciones: %v", err)
 	}
+
 	// Resgiter routes
 	routes.RegisterAreaRoutes(e, db)
 

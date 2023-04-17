@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -19,9 +20,10 @@ func NewDatabase(cfg *Config) (*gorm.DB, error) {
 
 // Migrate realiza migraciones en la base de datos para modelos específicos
 func Migrate(db *gorm.DB, models ...interface{}) error {
-	if err := db.AutoMigrate(models...); err != nil {
-		return fmt.Errorf("failed to auto migrate: %w", err)
+	for _, model := range models {
+		if err := db.AutoMigrate(model); err != nil {
+			return fmt.Errorf("failed to auto migrate: %w", err)
+		}
 	}
-
 	return nil
 }
