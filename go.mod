@@ -1,6 +1,6 @@
-module manager_src
+module hexal_manager
 
-go 1.21.5
+go 1.21.6
 
 require (
 	github.com/icrowley/fake v0.0.0-20221112152111-d7b7e2276db2
