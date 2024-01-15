@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func createNewRol(t *testing.T) *entities.Rol {
+func createRandomRol(t *testing.T) *entities.Rol {
 	rol := entities.NewRol(int64(fake.Day()), fake.UserName(), make([]entities.Operation, 1))
 	require.NotEmpty(t, rol)
 	require.NotEqual(t, rol.ID, 0)
@@ -20,6 +20,18 @@ func createNewRol(t *testing.T) *entities.Rol {
 }
 
 func TestCreateNewRol(t *testing.T) {
-	rol := createNewRol(t)
+	rol := createRandomRol(t)
 	require.NotNil(t, rol)
+}
+
+func TestAddNewOperation(t *testing.T) {
+	op := createRandomOperation(t)
+	rol := createRandomRol(t)
+	require.NotNil(t, op)
+	require.NotNil(t, rol)
+
+	rol.AddOperation(*op)
+	require.NotEmpty(t, rol.Operations)
+	require.Len(t, rol.Operations, 2)
+
 }

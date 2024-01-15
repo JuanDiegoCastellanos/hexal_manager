@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func createModule(t *testing.T) *entities.Module {
+func createRandomModule(t *testing.T) *entities.Module {
 	temporalModule := entities.NewModule(int64(fake.Day()), fake.UserName())
 	require.NotEqualf(t, temporalModule.ID, int64(0), "module id should not be empty")
 	require.NotEqual(t, temporalModule.Name, "")
@@ -17,12 +17,12 @@ func createModule(t *testing.T) *entities.Module {
 }
 
 func TestCreateModule(t *testing.T) {
-	createModule(t)
+	createRandomModule(t)
 }
 
 func TestAddOperationModule(t *testing.T) {
 	newOp := createRandomOperation(t)
-	newMod := createModule(t)
+	newMod := createRandomModule(t)
 	arrayOp := newMod.AddOperation(*newOp)
 	require.NotEmpty(t, arrayOp)
 	require.True(t, len(arrayOp) > 0)
