@@ -9,13 +9,20 @@ import (
 )
 
 func createRandomOperation(t *testing.T) *entities.Operation {
-	randomOperation := entities.NewOperation(int64(fake.Day()), fake.ProductName(), make([]entities.Rol, 0))
+	randomOperation := entities.NewOperation(int64(fake.Day()), fake.ProductName(), make([]entities.Rol, 1))
 	require.NotZero(t, randomOperation.ID)
 	require.NotEmpty(t, randomOperation.Name)
 	require.NotEqual(t, "", randomOperation.Name)
+	require.NotEmpty(t, randomOperation.Roles)
+
 	return randomOperation
 }
 
 func TestNewOperation(t *testing.T) {
-	createRandomOperation(t)
+	op := createRandomOperation(t)
+	require.NotNil(t, op)
+}
+
+func TestAddRol(t *testing.T) {
+
 }
