@@ -16,7 +16,7 @@ func newUser(t *testing.T) *entities.User {
 
 	require.NotEmpty(t, userTest)
 	require.Greater(t, userTest.ID, int64(0))
-	require.NotEmpty(t, userTest.Nick_name)
+	require.NotEmpty(t, userTest.NickName)
 	require.NotEmpty(t, userTest.Email)
 	require.NotEmpty(t, userTest.Password)
 	require.Greater(t, userTest.RoleId, int64(0))
