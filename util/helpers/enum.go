@@ -22,10 +22,10 @@ func NewValueEnum(id int32, name string) *ValueEnum {
 // EnumEntity has some single methods to add, delete, update, getAll and getOneSpecific
 type EnumEntity interface {
 	GetValues() []ValueEnum
-	GetValue(enum *ValueEnum) (*ValueEnum, error)
-	AddValue(enum *ValueEnum) error
-	UpdateValue(enum *ValueEnum) error
-	DeleteValue(enum *ValueEnum) error
+	GetValue(enum ValueEnum) (*ValueEnum, error)
+	AddValue(enum ValueEnum) error
+	UpdateValue(enum ValueEnum) error
+	DeleteValue(enum ValueEnum) error
 }
 
 // EnumAdapter is the adapter in order to each entity implements its specific enum
