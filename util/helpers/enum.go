@@ -94,31 +94,3 @@ func (ea *EnumAdapter) DeleteValue(paramValue ValueEnum) error {
 	}
 	return err
 }
-
-type StateEnum struct {
-	EnumAdapter
-}
-type ParkingTypeEnum struct {
-	EnumAdapter
-}
-type SocialSpacesTypeEnum struct {
-	EnumAdapter
-}
-type IncidentsStateEnum struct {
-	EnumAdapter
-}
-type PriorityEnum struct {
-	EnumAdapter
-}
-type IncidentsTypeEnum struct {
-	EnumAdapter
-}
-type EventsTypeEnum struct {
-	EnumAdapter
-}
-type ServicesTypeEnum struct {
-	EnumAdapter
-}
-type BookingsStateEnum struct {
-	EnumAdapter
-}

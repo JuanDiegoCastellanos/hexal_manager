@@ -9,7 +9,7 @@
 
 ## Appendix
 
-This is the backend layer of hexal manager system, hexal manager is a enterprise software to manage all the things about one enterprise, things like issues, tasks, incidents, meets, notes and everything that someone wants to manage with this software are possible 
+This is the backend layer of hexal manager system, hexal manager is a enterprise software to manage all the things about residential management, things like issues, tasks, incidents, meets, notes and everything that someone wants to manage with this software are possible 
 
 
 ## Features
