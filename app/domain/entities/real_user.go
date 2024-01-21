@@ -8,7 +8,7 @@ type RealUser struct {
 	LastName    string    `json:"lastname"`
 	Document    string    `json:"document"`
 	PhoneNumber string    `json:"phone_number"`
-	Ocupation   string    `json:"ocupation"`
+	Occupation  string    `json:"occupation"`
 	PetsCount   int       `json:"pets_count"`
 	ApartmentId int64     `json:"apartment_id"`
 	VehicleId   int64     `json:"vehicle_id"`
@@ -18,14 +18,14 @@ type RealUser struct {
 }
 
 func NewRealUser(id int64, name, lastName, document, phoneNumber,
-	ocupation string, petsCount int, apartmentId, vehicleId, leaseId, userId int64, createdAt time.Time) *RealUser {
+	occupation string, petsCount int, apartmentId, vehicleId, leaseId, userId int64, createdAt time.Time) *RealUser {
 	return &RealUser{
 		ID:          id,
 		Name:        name,
 		LastName:    lastName,
 		Document:    document,
 		PhoneNumber: phoneNumber,
-		Ocupation:   ocupation,
+		Occupation:  occupation,
 		PetsCount:   petsCount,
 		ApartmentId: apartmentId,
 		VehicleId:   vehicleId,
