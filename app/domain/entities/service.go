@@ -6,14 +6,14 @@ import (
 )
 
 type Service struct {
-	ID           int64
-	Name         string
-	TotalCost    float64
-	GeneratedAt  time.Time
-	ExpiringDate time.Time
-	Type         helpers.EnumEntity
-	OwnerID      int64
-	ApartmentID  int64
+	ID           int64              `json:"id"`
+	Name         string             `json:"name"`
+	TotalCost    float64            `json:"total_cost"`
+	GeneratedAt  time.Time          `json:"generated_at"`
+	ExpiringDate time.Time          `json:"expiring_date"`
+	ServiceType  helpers.EnumEntity `json:"service_type"`
+	OwnerID      int64              `json:"owner_id"`
+	ApartmentID  int64              `json:"apartment_id"`
 }
 
 func NewService(id int64, name string, totalCost float64,
@@ -26,7 +26,7 @@ func NewService(id int64, name string, totalCost float64,
 		TotalCost:    totalCost,
 		GeneratedAt:  generatedAt,
 		ExpiringDate: expiringDate,
-		Type:         typeService,
+		ServiceType:  typeService,
 		OwnerID:      ownerID,
 		ApartmentID:  apartmentID,
 	}
