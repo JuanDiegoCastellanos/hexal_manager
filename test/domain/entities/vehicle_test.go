@@ -1,10 +1,11 @@
 package test
 
 import (
-	"github.com/icrowley/fake"
-	"hexal_manager/app/domain/entities"
+	"hexal_manager/pkg/domain/entities"
 	"hexal_manager/util/helpers"
 	"testing"
+
+	"github.com/icrowley/fake"
 )
 
 func newVehicle(t *testing.T) *entities.Vehicle {
@@ -16,4 +17,8 @@ func newVehicle(t *testing.T) *entities.Vehicle {
 		helpers.RandomInt(1, 20),
 	)
 	return vehicleTest
+}
+
+func TestCreateVehicle(t *testing.T) {
+	newVehicle(t)
 }

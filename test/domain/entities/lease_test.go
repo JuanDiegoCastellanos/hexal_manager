@@ -1,11 +1,12 @@
 package test
 
 import (
-	"github.com/stretchr/testify/require"
-	"hexal_manager/app/domain/entities"
+	"hexal_manager/pkg/domain/entities"
 	"hexal_manager/util/helpers"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/require"
 )
 
 func newLease(t *testing.T) *entities.Lease {

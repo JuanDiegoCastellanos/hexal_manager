@@ -1,11 +1,12 @@
 package test
 
 import (
-	"github.com/icrowley/fake"
-	"github.com/stretchr/testify/require"
-	"hexal_manager/app/domain/entities"
+	"hexal_manager/pkg/domain/entities"
 	"hexal_manager/util/helpers"
 	"testing"
+
+	"github.com/icrowley/fake"
+	"github.com/stretchr/testify/require"
 )
 
 func newUser(t *testing.T) *entities.User {

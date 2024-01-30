@@ -1,7 +1,7 @@
 package test
 
 import (
-	"hexal_manager/app/domain/entities"
+	"hexal_manager/pkg/domain/entities"
 	"testing"
 
 	"github.com/icrowley/fake"

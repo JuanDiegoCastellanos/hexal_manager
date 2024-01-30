@@ -1,13 +1,14 @@
 package test
 
 import (
-	"github.com/icrowley/fake"
-	"github.com/stretchr/testify/require"
-	"hexal_manager/app/domain/entities"
+	"hexal_manager/pkg/domain/entities"
 	"hexal_manager/util/helpers"
 	"math/rand"
 	"testing"
 	"time"
+
+	"github.com/icrowley/fake"
+	"github.com/stretchr/testify/require"
 )
 
 func newApartment(t *testing.T) *entities.Apartment {
