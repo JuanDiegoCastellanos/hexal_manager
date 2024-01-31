@@ -7,6 +7,8 @@ require (
 	github.com/stretchr/testify v1.8.4
 )
 
+require github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
+
 require (
 	dario.cat/mergo v1.0.0 // indirect
 	github.com/bep/godartsass v0.16.0 // indirect
@@ -19,6 +21,7 @@ require (
 	github.com/fatih/color v1.14.1 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/gohugoio/hugo v0.111.3 // indirect
+	github.com/labstack/echo v3.3.10+incompatible
 	github.com/labstack/echo/v4 v4.11.4 // indirect
 	github.com/labstack/gommon v0.4.2 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
