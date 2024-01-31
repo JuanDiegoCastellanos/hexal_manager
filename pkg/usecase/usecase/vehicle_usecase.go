@@ -20,6 +20,7 @@ type VehicleUseCase interface {
 
 func (vhU *vehicleUseCase) GetVehicle(id string) (*entities.Vehicle, error) {
 	vh, err := vhU.vehicleRepository.GetVehicle(id)
+
 	if err != nil {
 		return nil, err
 	}
