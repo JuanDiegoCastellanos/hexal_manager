@@ -1,15 +1,16 @@
 version: "3"
 
 services:
-
+  #------------------------------
   redis:
     image: redis:alpine
     container_name: redis_container
     ports:
       - "6379:6379"
+    restart: always
     volumes:
       - ./data/redis:/data
-
+  #------------------------------
   mysql:
     platform: linux/x86_64
     container_name: mysql_db
@@ -18,9 +19,23 @@ services:
       - "3308:3306"
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_0900_as_ci --default-authentication-plugin=caching_sha2_password
     environment:
-      MYSQL_ROOT_PASSWORD: "@Manolo221212"
-      MYSQL_USER: "juan_caste"
-      MYSQL_PASSWORD: "@Manolo221212"
-      MYSQL_DATABASE: "hexal_db"
+      MYSQL_ROOT_PASSWORD: ${MYSQLDB_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQLDB_USER}
+      MYSQL_PASSWORD: ${MYSQLDB_PASSWORD}
+      MYSQL_DATABASE: ${MYSQLDB_DATABASE}
     volumes:
       - ./data/mysql:/var/lib/mysql
+  #-------------------------------
+  mongo:
+    platform: linux/x86_64
+    container_name: mongo_db
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    volumes:
+      - ./mongodb:/data/db
+
