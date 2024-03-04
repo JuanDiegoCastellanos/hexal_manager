@@ -38,4 +38,16 @@ services:
       MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
     volumes:
       - ./mongodb:/data/db
+      -
+
+  #-------------------------------
+  rabbitMQ:
+    platform: linux/x86_64
+    container_name: rabbitmq
+    image: rabbitmq:3.13.0-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+
 
