@@ -15,18 +15,3 @@ type Incident struct {
 	TypeIncident helpers.EnumEntity `json:"type_incident"`
 	CreatedAt    time.Time          `json:"created_at"`
 }
-
-func NewIncident(id int64, name, description string,
-	ownerID int64, state, priority,
-	typeService helpers.EnumEntity, createdAt time.Time) *Incident {
-	return &Incident{
-		ID:           id,
-		Name:         name,
-		State:        state,
-		Description:  description,
-		OwnerID:      ownerID,
-		Priority:     priority,
-		TypeIncident: typeService,
-		CreatedAt:    createdAt,
-	}
-}

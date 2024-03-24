@@ -17,19 +17,3 @@ type Event struct {
 	OwnerID             int64              `json:"owner_id"`
 	NotificationMediaID int64              `json:"notification_media_id"`
 }
-
-func NewEvent(id int64, name string, priority, typeEvent helpers.EnumEntity,
-	description string, startDate, createdAt time.Time, socialSpacesID, ownerID, notificationMediaID int64) *Event {
-
-	return &Event{
-		ID:                  id,
-		Name:                name,
-		Priority:            priority,
-		TypeEvent:           typeEvent,
-		Description:         description,
-		StartDate:           startDate,
-		CreatedAt:           createdAt,
-		SocialSpacesID:      socialSpacesID,
-		OwnerID:             ownerID,
-		NotificationMediaID: notificationMediaID}
-}

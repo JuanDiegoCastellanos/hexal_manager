@@ -9,15 +9,3 @@ type Vehicle struct {
 	VehicleType  helpers.EnumEntity `json:"vehicle_type"`
 	OwnerId      int64              `json:"owner_id"`
 }
-
-func NewVehicle(licensePlate int64,
-	brand, color string, vehicleType helpers.EnumEntity,
-	ownerId int64) *Vehicle {
-	return &Vehicle{
-		LicensePlate: licensePlate,
-		Brand:        brand,
-		Color:        color,
-		VehicleType:  vehicleType,
-		OwnerId:      ownerId,
-	}
-}

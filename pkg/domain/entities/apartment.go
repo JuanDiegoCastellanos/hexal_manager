@@ -18,22 +18,3 @@ type Apartment struct {
 	RentalCost      float64            `json:"rental_cost"`
 	CreatedAt       time.Time          `json:"created_at"`
 }
-
-func NewApartment(id, ownerId int64, apartmentNumber string,
-	size, roomCount, bathRoomCount, depositNumber int,
-	stateEnum helpers.EnumEntity, cost, rentalCost float64,
-	createdAt time.Time) *Apartment {
-	return &Apartment{
-		ID:              id,
-		ApartmentNumber: apartmentNumber,
-		OwnerId:         ownerId,
-		Size:            size,
-		RoomCount:       roomCount,
-		BathRoomCount:   bathRoomCount,
-		DepositNumber:   depositNumber,
-		State:           stateEnum,
-		Cost:            cost,
-		RentalCost:      rentalCost,
-		CreatedAt:       createdAt,
-	}
-}

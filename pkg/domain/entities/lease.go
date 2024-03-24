@@ -9,13 +9,3 @@ type Lease struct {
 	TotalCost       float64   `json:"total_cost"`
 	PaymentMethodID int64     `json:"payment_method_id"`
 }
-
-func NewLease(id int64, startDate time.Time, endDate time.Time, totalCost float64, paymentMethod int64) *Lease {
-	return &Lease{
-		ID:              id,
-		StartDate:       startDate,
-		EndDate:         endDate,
-		TotalCost:       totalCost,
-		PaymentMethodID: paymentMethod,
-	}
-}

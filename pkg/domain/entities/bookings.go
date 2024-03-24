@@ -20,25 +20,3 @@ type Booking struct {
 	UserID             int64              `json:"user_id"`
 	CreatedAt          time.Time          `json:"created_at"`
 }
-
-func NewBooking(id, socialSpace int64,
-	startDate, endDate time.Time, status helpers.EnumEntity, numberOfPeople int64,
-	specialRequest string, totalCost float64, paymentStatus string, paymentMethodID int64,
-	cancellationReason string, userID int64, createdAt time.Time) *Booking {
-
-	return &Booking{
-		ID:                 id,
-		SocialSpaceID:      socialSpace,
-		StartDate:          startDate,
-		EndDate:            endDate,
-		Status:             status,
-		NumberOfPeople:     numberOfPeople,
-		SpecialRequest:     specialRequest,
-		TotalCost:          totalCost,
-		PaymentStatus:      paymentStatus,
-		PaymentMethodID:    paymentMethodID,
-		CancellationReason: cancellationReason,
-		UserID:             userID,
-		CreatedAt:          createdAt,
-	}
-}

@@ -16,21 +16,3 @@ type RealUser struct {
 	UserId      int64     `json:"user_id"`
 	CreatedAt   time.Time `json:"created_at"`
 }
-
-func NewRealUser(id int64, name, lastName, document, phoneNumber,
-	occupation string, petsCount int, apartmentId, vehicleId, leaseId, userId int64, createdAt time.Time) *RealUser {
-	return &RealUser{
-		ID:          id,
-		Name:        name,
-		LastName:    lastName,
-		Document:    document,
-		PhoneNumber: phoneNumber,
-		Occupation:  occupation,
-		PetsCount:   petsCount,
-		ApartmentId: apartmentId,
-		VehicleId:   vehicleId,
-		LeaseId:     leaseId,
-		UserId:      userId,
-		CreatedAt:   createdAt,
-	}
-}

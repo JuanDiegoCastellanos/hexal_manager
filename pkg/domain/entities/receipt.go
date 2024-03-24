@@ -8,14 +8,3 @@ type Receipt struct {
 	PaymentMethodID int64   `json:"payment_method_id"`
 	TotalCost       float64 `json:"total_cost"`
 }
-
-func NewReceipt(id, ownerID, serviceID, notificationID, paymentMethodID int64, totalCost float64) *Receipt {
-	return &Receipt{
-		ID:              id,
-		OwnerID:         ownerID,
-		ServiceID:       serviceID,
-		NotificationID:  notificationID,
-		PaymentMethodID: paymentMethodID,
-		TotalCost:       totalCost,
-	}
-}

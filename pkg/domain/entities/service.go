@@ -15,20 +15,3 @@ type Service struct {
 	OwnerID      int64              `json:"owner_id"`
 	ApartmentID  int64              `json:"apartment_id"`
 }
-
-func NewService(id int64, name string, totalCost float64,
-	generatedAt, expiringDate time.Time, typeService helpers.EnumEntity,
-	ownerID, apartmentID int64) *Service {
-
-	return &Service{
-		ID:           id,
-		Name:         name,
-		TotalCost:    totalCost,
-		GeneratedAt:  generatedAt,
-		ExpiringDate: expiringDate,
-		ServiceType:  typeService,
-		OwnerID:      ownerID,
-		ApartmentID:  apartmentID,
-	}
-
-}

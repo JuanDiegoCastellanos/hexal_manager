@@ -15,18 +15,3 @@ type ParkingSpace struct {
 	CheckOut         time.Time          `json:"check_out"`
 	VehicleID        int64              `json:"vehicle_id"`
 }
-
-func NewParkingSpace(parkingNumber, parkingLot, apartmentID, vehicleID int64,
-	parkingSpaceType, state helpers.EnumEntity, checkIn, checkOut time.Time) *ParkingSpace {
-
-	return &ParkingSpace{
-		ParkingNumber:    parkingNumber,
-		ParkingLot:       parkingLot,
-		ApartmentID:      apartmentID,
-		ParkingSpaceType: parkingSpaceType,
-		State:            state,
-		CheckIn:          checkIn,
-		CheckOut:         checkOut,
-		VehicleID:        vehicleID,
-	}
-}
