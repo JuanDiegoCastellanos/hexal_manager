@@ -1,8 +1,11 @@
 package main
 
 import (
+	"context"
 	"fmt"
+	amqp "github.com/rabbitmq/amqp091-go"
 	"log"
+	"time"
 )
 
 func failOnError(err error, msg string) {
@@ -11,5 +14,37 @@ func failOnError(err error, msg string) {
 	}
 }
 func main() {
-	fmt.Println("Hello everyone")
+	fmt.Println("Testing RabbitMQ")
+
+	// making the RabbitMQ connection
+	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	failOnError(err, "Failed to connect to RabbitMQ")
+	defer conn.Close()
+
+	// Next, we need a channel
+	ch, err := conn.Channel()
+	failOnError(err, "failed to open a channel")
+	defer ch.Close()
+
+	// Create a Queue
+	q, err := ch.QueueDeclare(
+		"HexalTesting",
+		false,
+		false,
+		false,
+		false,
+		nil)
+	failOnError(err, "Failed to declare a Queue")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	body := "User Issue"
+	err = ch.PublishWithContext(ctx, "", q.Name, false, false, amqp.Publishing{
+		ContentType: "text/plain",
+		Body:        []byte(body),
+	})
+
+	failOnError(err, "Failed to publish a message")
+	log.Printf(" [X] Sent %s\n", body)
 }

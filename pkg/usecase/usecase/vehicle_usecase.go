@@ -19,8 +19,8 @@ type VehicleUseCase interface {
 	Delete(id string) error
 }
 
-func (vhu *vehicleUseCase) GetVehicle(id string) (*entities.Vehicle, error) {
-	vehicle, err := vhu.vehicleRepository.GetVehicle(id)
+func (vuc *vehicleUseCase) GetVehicle(id string) (*entities.Vehicle, error) {
+	vehicle, err := vuc.vehicleRepository.GetVehicle(id)
 
 	if err != nil {
 		return nil, err
@@ -28,8 +28,8 @@ func (vhu *vehicleUseCase) GetVehicle(id string) (*entities.Vehicle, error) {
 	return vehicle, nil
 }
 
-func (vhU *vehicleUseCase) GetAll(id string) ([]*entities.Vehicle, error) {
-	vehicles, err := vhU.vehicleRepository.ListAll()
+func (vuc *vehicleUseCase) GetAll(id string) ([]*entities.Vehicle, error) {
+	vehicles, err := vuc.vehicleRepository.ListAll()
 
 	if err != nil {
 		return nil, err
@@ -38,10 +38,10 @@ func (vhU *vehicleUseCase) GetAll(id string) ([]*entities.Vehicle, error) {
 	return vehicles, nil
 }
 
-func (vhu *vehicleUseCase) Create(vh *entities.Vehicle) (*entities.Vehicle, error) {
+func (vuc *vehicleUseCase) Create(vh *entities.Vehicle) (*entities.Vehicle, error) {
 
-	data, err := vhu.dBRepository.TransactionTX(func(i interface{}) (interface{}, error) {
-		vehicle, err := vhu.vehicleRepository.Create(vh)
+	data, err := vuc.dBRepository.TransactionTX(func(i interface{}) (interface{}, error) {
+		vehicle, err := vuc.vehicleRepository.Create(vh)
 		if err != nil {
 			return nil, err
 		}
@@ -59,9 +59,9 @@ func (vhu *vehicleUseCase) Create(vh *entities.Vehicle) (*entities.Vehicle, erro
 	}
 	return vehicle, nil
 }
-func (vhu *vehicleUseCase) Update(vh *entities.Vehicle) (*entities.Vehicle, error) {
-	data, err := vhu.dBRepository.TransactionTX(func(i interface{}) (interface{}, error) {
-		vh, err := vhu.vehicleRepository.Update(vh)
+func (vuc *vehicleUseCase) Update(vh *entities.Vehicle) (*entities.Vehicle, error) {
+	data, err := vuc.dBRepository.TransactionTX(func(i interface{}) (interface{}, error) {
+		vh, err := vuc.vehicleRepository.Update(vh)
 		if err != nil {
 			return nil, err
 		}
@@ -79,9 +79,9 @@ func (vhu *vehicleUseCase) Update(vh *entities.Vehicle) (*entities.Vehicle, erro
 	return updatedVehicle, nil
 }
 
-func (vhu *vehicleUseCase) Delete(id string) error {
-	_, err := vhu.dBRepository.TransactionTX(func(i interface{}) (interface{}, error) {
-		err := vhu.vehicleRepository.Delete(id)
+func (vuc *vehicleUseCase) Delete(id string) error {
+	_, err := vuc.dBRepository.TransactionTX(func(i interface{}) (interface{}, error) {
+		err := vuc.vehicleRepository.Delete(id)
 		if err != nil {
 			return nil, err
 		}
